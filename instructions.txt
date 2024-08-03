@@ -1,0 +1,15 @@
+Instructions:
+
+Things to do ONCE only:
+1. Download "wiki.en.zip" from https://fasttext.cc/docs/en/pretrained-vectors.html.
+    - this contains the pre-trained fasttext word vectors 
+    - make sure to get the English bin+text version
+2. Extract "wiki.en.zip" to get "wiki.en.bin".
+3. Run "pickle_fasttext_pretrained_model.py" to load and pickle the fasttext model.
+    - this will speed up the loading time of future runs
+
+Things to do every run:
+1. In main.py, set the values for "COL_NAME" and "DESCR".
+    - "COL_NAME": the name of the csv column containing the words to be normalized.
+    - "DESCR": the name of the csv column containing the domain text.
+2. Run "main.py" to get a DataFrame containing column names and their lists of derived column names.
