@@ -594,13 +594,14 @@ def plot_cryptic_token_hist(word_list):
 def run_cnn_initializer(catalog, tab_name, col_name, bus_term, descr):
     n = 3 # top n rewrite rules for each token 
 
-    # a new csv file containing only the column names
+    # a new csv file containing only the table or column names
     col_table_path = 'experiment_data/tc_names.csv'
     col_table = pd.read_csv(col_table_path).drop_duplicates()
     col_table = col_table.apply(lambda row: extract_tokens(row, col_name), axis=1).reset_index() #tokenize col_name
     col_table["index"] = col_table.index
     col_table = col_table.rename({"index": "col_id"}, axis=1)
-
+    
+    # a new csv file containing only the business terms and/or descriptions of the business terms
     bt_table_path = "experiment_data/bus_terms.csv"
     bt_table = pd.read_csv(bt_table_path)
     bt_table = bt_table.apply(lambda row: extract_tokens(row, bus_term), axis=1).reset_index()
